@@ -2,16 +2,20 @@
 
 This project was created by `create-react-app`.
 
+## Installation
+
+You can choose `npm` or `yarn` to install, for your preferences:
+
 ```sh
-  npm run styleguide
-  # yarn run styleguide
+  npm i # yarn
+  npm start # yarn run start
 ```
 
-Instead of running a react application, we use `react-styleguidist` to develop QUI components.
+Instead of running a react application, we use `react-styleguidist` to develop QUI components:
 
 ```sh
 Style guide server started at:
 http://0.0.0.0:6060
 ```
 
-Please keep the `start`, `build`, `test` and leave `eject` alone from the npm scripts.
+> Note: please DO NOT EJECT the project.
