@@ -12,11 +12,10 @@ const BaseStyle = css`
     outline: 0;
   };
   &:hover {
-    color: #707070;
+    opacity: 0.8;
   };
   &:disabled {
-    color: #aeaeae;
-    border-color: #aeaeae;
+    opacity: 0.5;
     cursor: not-allowed;
   };
 `;
