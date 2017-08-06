@@ -17,5 +17,3 @@ Instead of running a react application, we use `react-styleguidist` to develop Q
 Style guide server started at:
 http://0.0.0.0:6060
 ```
-
-> Note: please DO NOT EJECT the project.
