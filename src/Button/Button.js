@@ -1,40 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import BaseStyle from './base';
-
-const RoundedButtonStyle = css`
-  font-size: 12px;
-  height: 22px;
-  border-radius: 8px;
-`;
-
-const SquareButtonStyle = css`
-  font-size: 14px;
-  height: 30px;
-  border-radius: 0;
-`;
-
-const ActiveButtonStyle = css`
-  &:active {
-    box-shadow: 0 0 0px 1px #2f2f2f inset;
-    color: #2f2f2f;
-  };
-`;
+import styled from 'styled-components';
+import * as baseStyle from './base';
 
 const ButtonBase = styled.button`
-  ${BaseStyle};
-  ${props => props.btnType === 'rounded' ? RoundedButtonStyle : SquareButtonStyle };
-  ${props => props.disabled ? null : ActiveButtonStyle};
+  ${props => props.btnType === 'rounded' ? baseStyle.roundedButtonStyle : baseStyle.squareButtonStyle };
+  ${props => {
+    switch (props.btnStyle) {
+      case 'primary':
+        return baseStyle.primaryStyle;
+      case 'warning':
+        return baseStyle.warningStyle;
+      case 'success':
+        return baseStyle.successStyle;
+      case 'danger':
+        return baseStyle.dangerStyle;
+      default:
+        return baseStyle.defaultStyle;
+    };
+  }};
+  ${props => props.fullWidth ? 'width: 100%' : null};
 `;
 
 class Button extends Component {
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
     btnType: PropTypes.oneOf(['square', 'rounded']),
+    btnStyle: PropTypes.oneOf(['default', 'primary', 'warning', 'success', 'danger']),
+    fullWidth: PropTypes.bool,
+    onClick: PropTypes.func,
+    style: PropTypes.object,
+    className: PropTypes.string,
   };
   static defaultProps = {
     btnType: 'square',
+    btnStyle: 'default',
+    fullWidth: false,
   };
 
   render() {
