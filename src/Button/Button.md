@@ -5,8 +5,8 @@
 
 ```js
   <div>
-    <Button  label="YES" />
-    <Button  label="YES" disabled />
+    <Button>YES</Button>
+    <Button disabled>YES</Button>
   </div>
 ```
 
@@ -14,7 +14,7 @@
 
 ```js
   <div>
-    <Button  btnType="rounded" label="YES" />
-    <Button  btnType="rounded" label="YES" disabled />
+    <Button  btnType="rounded">YES</Button>
+    <Button  btnType="rounded" disabled>YES</Button>
   </div>
 ```
