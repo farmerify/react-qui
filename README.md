@@ -1,5 +1,11 @@
 # QUI built for React Components
 
+<p align="center">
+  <a href="https://travis-ci.org/farmerify/react-qui" target="_blank">
+    <img src="https://travis-ci.org/farmerify/react-qui.svg?branch=master" />
+  </a>
+</p>
+
 This project was created by `create-react-app`.
 
 ## Installation
