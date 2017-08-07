@@ -1,48 +1,56 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import * as baseStyle from './base';
+import * as base from './base';
+import * as colors from 'styles/colors';
 
-const ButtonBase = styled.button`
-  ${props => props.btnType === 'rounded' ? baseStyle.roundedButtonStyle : baseStyle.squareButtonStyle };
-  ${props => {
+const StyledButton = styled.button.attrs({
+  mainColor: props => {
     switch (props.btnStyle) {
       case 'primary':
-        return baseStyle.primaryStyle;
-      case 'warning':
-        return baseStyle.warningStyle;
+        return colors.primary;
       case 'success':
-        return baseStyle.successStyle;
+        return colors.success;
       case 'danger':
-        return baseStyle.dangerStyle;
+        return colors.danger;
+      case 'warning':
+        return colors.warning;
       default:
-        return baseStyle.defaultStyle;
-    };
-  }};
-  ${props => props.fullWidth ? 'width: 100%' : null};
+        return colors.defaultColor;
+    }
+  },
+  hollow: props => props.hollow,
+  fullWidth: props => props.fullWidth,
+})`
+  ${base.baseStyle};
+  ${base.getBtnType};
+  ${base.getBtnStyle};
+  ${base.getBtnWidth};
 `;
 
 class Button extends Component {
   static propTypes = {
-    children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
     btnType: PropTypes.oneOf(['square', 'rounded']),
     btnStyle: PropTypes.oneOf(['default', 'primary', 'warning', 'success', 'danger']),
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
     fullWidth: PropTypes.bool,
+    hollow: PropTypes.bool,
     onClick: PropTypes.func,
     style: PropTypes.object,
-    className: PropTypes.string,
   };
   static defaultProps = {
     btnType: 'square',
     btnStyle: 'default',
     fullWidth: false,
+    hollow: true,
   };
 
   render() {
     return (
-      <ButtonBase {...this.props}>
+      <StyledButton {...this.props}>
         {this.props.children}
-      </ButtonBase>
+      </StyledButton>
     );
   }
 }
