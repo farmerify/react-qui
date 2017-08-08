@@ -1,36 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import * as base from './base';
+import BaseButton from './base';
 import * as colors from 'styles/colors';
 
-const StyledButton = styled.button.attrs({
-  mainColor: props => {
-    switch (props.btnStyle) {
-      case 'primary':
-        return colors.primary;
-      case 'success':
-        return colors.success;
-      case 'danger':
-        return colors.danger;
-      case 'warning':
-        return colors.warning;
-      default:
-        return colors.defaultColor;
-    }
-  },
-  hollow: props => props.hollow,
-  fullWidth: props => props.fullWidth,
-})`
-  ${base.baseStyle};
-  ${base.getBtnType};
-  ${base.getBtnStyle};
-  ${base.getBtnWidth};
-`;
+/**
+ * The only true button.
+ *
+ * @version 1.0.1
+*/
 
 class Button extends Component {
   static propTypes = {
     btnType: PropTypes.oneOf(['square', 'rounded']),
+    /**
+     * Gets called when the user clicks on the button
+     *
+     * @param {SyntheticEvent} event The react `SyntheticEvent`
+     * @param {Object} allProps All props of this Button
+     */
     btnStyle: PropTypes.oneOf(['default', 'primary', 'warning', 'success', 'danger']),
     className: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
@@ -46,11 +33,27 @@ class Button extends Component {
     hollow: true,
   };
 
+  renderMainColor =  (style) => {
+    switch (style) {
+      case 'primary':
+        return colors.primary;
+      case 'danger':
+        return colors.danger;
+      case 'success':
+        return colors.success;
+      case 'warning':
+        return colors.warning;
+      default:
+        return colors.defaultColor;
+    }
+  }
+
   render() {
+    const mainColor = this.renderMainColor(this.props.btnStyle);
     return (
-      <StyledButton {...this.props}>
+      <BaseButton {...this.props} mainColor={mainColor}>
         {this.props.children}
-      </StyledButton>
+      </BaseButton>
     );
   }
 }

@@ -4,7 +4,7 @@ Button 用於 xxafdfsfdsfsd....
 
 ## 樣式選擇： btnStyle
 
-```js
+```jsx
   <div>
     <Button>default</Button>
     <Button btnStyle="primary">primary</Button>
@@ -30,8 +30,11 @@ Button 用於 xxafdfsfdsfsd....
 
 ```js
   <div>
-    <Button>hollow</Button>
-    <Button hollow={false}>concrete</Button>
+    <Button hollow={false}>default</Button>
+    <Button hollow={false} btnStyle="primary">primary</Button>
+    <Button hollow={false} btnStyle="success">success</Button>
+    <Button hollow={false} btnStyle="warning">warning</Button>
+    <Button hollow={false} btnStyle="danger">danger</Button>
   </div>
 ```
 

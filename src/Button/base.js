@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const roundedStyle = css`
   font-size: 12px;
@@ -12,12 +12,11 @@ const squareStyle = css`
   border-radius: 0;
 `;
 
-export const baseStyle = css`
+const baseStyle = css`
   cursor: pointer;
   min-width: 80px;
-  margin: 0 4px;
   padding: 0 22px;
-  border: ${props => `1px solid ${props.mainColor}`};
+  border: 1px solid black;
 
   &:focus {
     outline: 0;
@@ -39,20 +38,30 @@ export const baseStyle = css`
   }
 `;
 
-export const getBtnType = css`
+const handleBtnType = css`
   ${props => props.btnType === 'rounded' ? roundedStyle : squareStyle};
 `;
 
-export const getBtnStyle = css`
+const handleBtnStyle = css`
+  ${baseStyle};
   color: ${props => props.hollow ? props.mainColor : 'white'};
-  border: ${props => props.mainColor};
+  border-color: ${props => props.mainColor};
   background-color: ${props => props.hollow ? 'transparent' : props.mainColor};
 
   &:active {
-    ${props => props.hollow ? `box-shadow: 0 0 0 1px ${props.mainColor}` : null};
+    opacity: 1;
+    ${props => props.hollow ? `box-shadow: 0 0 0 1px ${props.mainColor} inset` : null};
   }
 `;
 
-export const getBtnWidth = css`
+const handleBtnWidth = css`
   ${props => props.fullWidth ? 'width: 100%' : null};
 `;
+
+const BaseButton = styled.button`
+  ${handleBtnType};
+  ${handleBtnStyle};
+  ${handleBtnWidth};
+`;
+
+export default BaseButton;
