@@ -1,31 +1,40 @@
-### 兩種 Button 類型：
+## 樣式選擇： btnStyle
 
-* 方角的Button → 適用於最後確認之按鈕 例如: Apply all 、Ok、Cancel、Close...
-* 預設為此類型按鈕
-
-```js
+```jsx
   <div>
-    <Button onClick={() => console.log('you click')}>YES</Button>
-    <Button btnStyle="primary">YES</Button>
-    <Button btnStyle="warning">YES</Button>
-    <Button btnStyle="success">YES</Button>
-    <Button btnStyle="danger">YES</Button>
+    <Button>default</Button>
+    <Button btnStyle="primary">primary</Button>
+    <Button btnStyle="success">success</Button>
+    <Button btnStyle="warning">warning</Button>
+    <Button btnStyle="danger">danger</Button>
   </div>
 ```
 
+## 類別選擇： btnType
+
+* 方角的Button → 適用於最後確認之按鈕 例如: Apply all 、Ok、Cancel、Close...
 * 有帶R角的Button (R8) → 適用於一般內文區域使用之按鈕
 
 ```js
   <div>
-    <Button btnType="rounded">YES</Button>
-    <Button btnType="rounded" btnStyle="primary">YES</Button>
-    <Button btnType="rounded" btnStyle="warning">YES</Button>
-    <Button btnType="rounded" btnStyle="success">YES</Button>
-    <Button btnType="rounded" btnStyle="danger">YES</Button>
+    <Button>default</Button>
+    <Button btnType="rounded">rounded</Button>
   </div>
 ```
 
-### 不可按狀態(disabled):
+## 空心與實心按鈕： hollow
+
+```js
+  <div>
+    <Button hollow={false}>default</Button>
+    <Button hollow={false} btnStyle="primary">primary</Button>
+    <Button hollow={false} btnStyle="success">success</Button>
+    <Button hollow={false} btnStyle="warning">warning</Button>
+    <Button hollow={false} btnStyle="danger">danger</Button>
+  </div>
+```
+
+## 不可按狀態: disabled
 
 ```js
   <div>
