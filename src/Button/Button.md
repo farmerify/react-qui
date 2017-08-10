@@ -1,7 +1,3 @@
-# Buttons 按鈕
-
-Button 用於 xxafdfsfdsfsd....
-
 ## 樣式選擇： btnStyle
 
 ```jsx

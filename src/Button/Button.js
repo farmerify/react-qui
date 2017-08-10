@@ -4,26 +4,37 @@ import BaseButton from './base';
 import * as colors from 'styles/colors';
 
 /**
- * The only true button.
+ * Button is used for interactions with clients, like Dialog waiting for confirmation, or further actions.
  *
- * @version 1.0.1
 */
 
 class Button extends Component {
   static propTypes = {
+    /**
+     * square button is used for confirmation, while rounded button is for general purpose in context.
+     */
     btnType: PropTypes.oneOf(['square', 'rounded']),
     /**
-     * Gets called when the user clicks on the button
-     *
-     * @param {SyntheticEvent} event The react `SyntheticEvent`
-     * @param {Object} allProps All props of this Button
+     * five pre-defined colors, just for your preferences.
      */
     btnStyle: PropTypes.oneOf(['default', 'primary', 'warning', 'success', 'danger']),
+    /**
+     * Add additional className for button element.
+     */
     className: PropTypes.string,
+    /**
+     * Content of buttons, can be a string, number or a React component.
+     */
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.string, PropTypes.number]),
     fullWidth: PropTypes.bool,
+    /**
+    * switch buttons between hollow status.
+    */
     hollow: PropTypes.bool,
     onClick: PropTypes.func,
+    /**
+     * Add custom styles for the button style.
+     */
     style: PropTypes.object,
   };
   static defaultProps = {
