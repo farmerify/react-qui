@@ -30,5 +30,5 @@ http://0.0.0.0:6060
 ## Deploy QUI Documentation
 
 ```sh
-	npm deploy # yarn deploy
+  npm deploy # yarn deploy
 ```
