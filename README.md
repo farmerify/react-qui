@@ -8,6 +8,10 @@
 
 This project was created by `create-react-app`.
 
+## Documentation
+
+[React QUI Documentation](https://farmerify.github.io/react-qui)
+
 ## Installation
 
 You can choose `npm` or `yarn` to install, for your preferences:
@@ -22,4 +26,9 @@ Instead of running a react application, we use `react-styleguidist` to develop Q
 ```sh
 Style guide server started at:
 http://0.0.0.0:6060
+```
+## Deploy QUI Documentation
+
+```sh
+	npm deploy # yarn deploy
 ```
